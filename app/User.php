@@ -40,4 +40,33 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(Role::class);
     }
+
+    public function checkRoles($roles)
+    {
+        if ( !is_array($roles)) 
+        {
+            //print_r("here2");exit;
+            $roles = [$roles];
+        }
+
+        if (!$this->hasAnyRole($roles)) 
+        { //print_r("here2");exit;
+            auth()->logout();
+            abort(404);
+        }
+    }
+
+    public function hasAnyRole($roles): bool
+    {
+        return (bool) $this->roles()->whereIn('name', $roles)->first();
+    }
+
+    public function hasRole($role): bool
+    {
+        return (bool) $this->roles()->where('name', $role)->first();
+    }
+        
+    
+
+
 }
