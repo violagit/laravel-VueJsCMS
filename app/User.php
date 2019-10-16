@@ -45,12 +45,13 @@ class User extends Authenticatable
     {
         if ( !is_array($roles)) 
         {
-            //print_r("here2");exit;
+            //print_r("here1");exit;
             $roles = [$roles];
         }
 
         if (!$this->hasAnyRole($roles)) 
-        { //print_r("here2");exit;
+        { 
+            //print_r("here2");exit;
             auth()->logout();
             abort(404);
         }
