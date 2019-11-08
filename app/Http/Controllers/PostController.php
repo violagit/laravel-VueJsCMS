@@ -92,6 +92,6 @@ class PostController extends Controller
 
     public function single(Post $post)
     {
-        return view('single', compact(‘post’));
+        return view('single', compact('post'));
     }
 }

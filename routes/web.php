@@ -12,7 +12,8 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    dd("viola");exit;
+    //return view('welcome');
 });
 
 Auth::routes();
