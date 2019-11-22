@@ -8,7 +8,7 @@
 
       @foreach ($posts as $post)
       <div class="card mb-4">
-        <img class="card-img-top" src=" {!! !empty($post->image) ? '/uploads/posts/' . $post->image :  'http://placehold.it/750x300' !!} " alt="Card image cap">
+        <img class="card-img-top" src=" {!! !empty($post->image) ? '/uploads/posts/' . $post->image :  'https://www.smartsheet.com/sites/default/files/IC-DevOps-Venn-Diagram.jpg' !!} " alt="Card image cap">
         <div class="card-body">
           <h2 class="card-title text-center">{{ $post->title }}</h2>
           {{-- <p class="card-text"> {{ str_limit($post->body, $limit = 280, $end = '...') }} </p> --}}
