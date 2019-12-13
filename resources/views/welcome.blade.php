@@ -81,13 +81,13 @@
                 </div>
             @endif
 
-            <div >
+            <div>
                 <div style="text-align:center" class="title m-b-md">
                     <b style="color:darkcyan;text-align:center">Welcome to Laravel Blog</b></div>
+                        <h3 style ="text-align:center"> 
+                            <a style="color:darkcyan;text-align:center" href="{{ url('/posts') }}"> Go check our latest posts<a>
+                        </h3>
                     <img src="https://giveuselife.org/wp-content/uploads/2017/12/hires-1.jpg" width="100%" height="110%" >
-                    {{-- <div style="background-image: url('https://www.fastcomet.com/blog/wp-content/uploads/2019/09/fastcomet-laravel-6.png');"> --}}
-                
-
             </div>
         </div>
     </body>
