@@ -8,8 +8,11 @@
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
-
+        
         <!-- Styles -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
         <style>
             html, body {
                 background-color: #fff;
@@ -70,30 +73,21 @@
                     @auth
                         <a href="{{ url('/home') }}">Home</a>
                     @else
-                        <a href="{{ route('login') }}">Login</a>
-
+                        <button type="button" class="btn btn-info" onclick="window.location='{{route('login')}}'"><b>Login<b></button>
                         @if (Route::has('register'))
-                            <a href="{{ route('register') }}">Register</a>
+                            <button type="button" class="btn btn-outline-info" onclick="window.location='{{ route('register') }}'"><b>Register<b></button>
                         @endif
                     @endauth
                 </div>
             @endif
 
-            <div class="content">
-                <div class="title m-b-md">
-                    Laravel
-                </div>
+            <div >
+                <div style="text-align:center" class="title m-b-md">
+                    <b style="color:darkcyan;text-align:center">Welcome to Laravel Blog</b></div>
+                    <img src="https://giveuselife.org/wp-content/uploads/2017/12/hires-1.jpg" width="100%" height="110%" >
+                    {{-- <div style="background-image: url('https://www.fastcomet.com/blog/wp-content/uploads/2019/09/fastcomet-laravel-6.png');"> --}}
+                
 
-                <div class="links">
-                    <a href="https://laravel.com/docs">Docs</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://blog.laravel.com">Blog</a>
-                    <a href="https://nova.laravel.com">Nova</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://vapor.laravel.com">Vapor</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
-                </div>
             </div>
         </div>
     </body>
