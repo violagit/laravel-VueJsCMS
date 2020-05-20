@@ -12,8 +12,9 @@ use Illuminate\Http\Request;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-Route::get('/posts', 'PostController@all');
-Route::get('/posts/{post}', 'PostController@single');
+// Route::get('/posts', 'PostController@all');
+// Route::get('/posts/{post}', 'PostController@single');
+Route::apiResource('posts', 'PostController');
 // Route::get('/test/{id}', ['uses' => 'TestModelController@getSpecificTest']);
 // Route::post('/posttest', ['uses' => 'TestModelController@postTest']);
 // Route::put('/test/{id}', ['uses' => 'TestModelController@putTest']);
