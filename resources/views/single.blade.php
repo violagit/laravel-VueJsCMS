@@ -8,7 +8,7 @@
       <hr>
       <p>Posted {{ $post->created_at->diffForHumans() }} </p>
       <hr>
-      <img class="img-fluid rounded" src=" {!! !empty($post->image) ? '/uploads/posts/' . $post->image :  'https://www.smartsheet.com/sites/default/files/IC-DevOps-Venn-Diagram.jpg' !!} " alt="">
+      <img class="img-fluid rounded" src=" {!! !empty($post->image) ? '/storage/posts/' . $post->image :  'https://www.smartsheet.com/sites/default/files/IC-DevOps-Venn-Diagram.jpg' !!} " alt="">
       <hr>
       <p class="lead">{{ $post->body }}</p>
       <hr>

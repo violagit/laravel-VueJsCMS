@@ -87,7 +87,6 @@
                         <h3 style ="text-align:center"> 
                             <a style="color:darkcyan;text-align:center" href="{{ url('/posts') }}"> Go check our latest posts<a>
                         </h3>
-                    <img src="https://giveuselife.org/wp-content/uploads/2017/12/hires-1.jpg" width="100%" height="110%" >
             </div>
         </div>
     </body>
