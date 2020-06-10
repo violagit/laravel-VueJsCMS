@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\Controller;
+use App\Http\Resources\PostResource;
 use App\Post;
 use Illuminate\Http\Request;
-use Http\Resources\PostResource;
+
 class PostController extends Controller
 {
     /**
@@ -15,16 +17,6 @@ class PostController extends Controller
     public function index()
     {
         return PostResource::collection(Post::latest()->paginate(5));
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
     }
 
     /**
@@ -39,7 +31,7 @@ class PostController extends Controller
             'title' => 'required',
             'body' => 'required',
             'user_id' => 'required',
-            'image' => 'required|mimes:jpeg,png,jpg,gif,svg',
+            'image' => 'mimes:jpeg,png,jpg,gif,svg',
         ]);
 
         $post = new Post;
@@ -47,8 +39,8 @@ class PostController extends Controller
         if ($request->hasFile('image')) {
             $image = $request->file('image');
             $name = str_slug($request->title) . '.' . $image->getClientOriginalExtension();
-            $destinationPath = public_path('/storage/posts');
-            $imagePath = $destinationPath . "/" . $name;
+            $destinationPath = public_path('storage\posts');
+            $imagePath = $destinationPath . "\\" . $name;
             $image->move($destinationPath, $name);
             $post->image = $name;
         }
@@ -69,19 +61,7 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
-        dd();
         return new PostResource($post);
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Post  $post
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Post $post)
-    {
-        //
     }
 
     /**
@@ -93,7 +73,15 @@ class PostController extends Controller
      */
     public function update(Request $request, Post $post)
     {
-        //
+
+        $this->validate($request, [
+            'title' => 'required',
+            'body' => 'required',
+        ]);
+
+        $post->update($request->only(['title', 'body']));
+
+        return new PostResource($post);
     }
 
     /**
@@ -104,7 +92,9 @@ class PostController extends Controller
      */
     public function destroy(Post $post)
     {
-        //
+        $post->delete();
+
+        return response()->json(null, 204);
     }
 
     public function all()
@@ -116,7 +106,7 @@ class PostController extends Controller
 
     public function single(Post $post)
     {
-       
+
         return view('single', compact('post'));
     }
 }

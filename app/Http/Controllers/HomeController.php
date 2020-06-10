@@ -22,7 +22,7 @@ class HomeController extends Controller
      * @return \Illuminate\Contracts\Support\Renderable
      */
     public function index(Request $request)
-    {
+    { 
         if ($request->user()->hasRole('user')){
             return redirect('/home');
         }
