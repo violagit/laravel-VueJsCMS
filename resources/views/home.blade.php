@@ -14,8 +14,13 @@
                         </div>
                     @endif
 
-                    You are logged in!
+                    <b style="color:blueviolet;text-align:center">Welcome to Tech Blog</b></div>
                 </div>
+            </div>
+            <div style="text-align:center" class="title m-b-md">
+                <h3 style ="text-align:center"> 
+                    <a  class="btn btn-primary btn-lg btn-block" style="background-color:blueviolet;text-align:center" href="{{ url('/posts') }}"> Go check our latest posts<a>
+                </h3>
             </div>
         </div>
     </div>

@@ -10927,3 +10927,7 @@ a.text-dark:focus {
   }
 }
 
+.row.align-items-center {
+  margin-top: 40px !important;
+}
+

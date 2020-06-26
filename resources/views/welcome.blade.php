@@ -83,10 +83,11 @@
 
             <div>
                 <div style="text-align:center" class="title m-b-md">
-                    <b style="color:darkcyan;text-align:center">Welcome to Laravel Blog</b></div>
+                    <b style="color:darkcyan;text-align:center">Welcome to Tech Blog</b></div>
                         <h3 style ="text-align:center"> 
                             <a style="color:darkcyan;text-align:center" href="{{ url('/posts') }}"> Go check our latest posts<a>
                         </h3>
+                        <button type="button" class="btn btn-primary btn-lg btn-block">Check our latest posts</button>
             </div>
         </div>
     </body>
