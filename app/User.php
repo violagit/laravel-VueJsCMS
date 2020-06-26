@@ -2,11 +2,13 @@
 
 namespace App;
 
+use App\Post;
+use App\Role;
+use App\Comment;
+use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
-use App\Role;
-use App\Post;
+
 class User extends Authenticatable
 {
     use Notifiable;
@@ -46,13 +48,11 @@ class User extends Authenticatable
     {
         if ( !is_array($roles)) 
         {
-            //print_r("here1");exit;
             $roles = [$roles];
         }
 
         if (!$this->hasAnyRole($roles)) 
         { 
-            //print_r("here2");exit;
             auth()->logout();
             abort(404);
         }
@@ -74,4 +74,8 @@ class User extends Authenticatable
         return $this->hasMany(Post::class);
     }
 
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
+    }
 }
