@@ -23,8 +23,11 @@ class HomeController extends Controller
      */
     public function index(Request $request)
     { 
+        if($request->user()->hasAnyRole(['user','admin']) == false){ 
+            $request->user()->roles()->attach(\App\Role::where('name', 'user')->first());
+        }
         if ($request->user()->hasRole('user')){
-            return redirect('/home');
+            return view('home');
         }
         
         if($request->user()->hasRole('admin')){
